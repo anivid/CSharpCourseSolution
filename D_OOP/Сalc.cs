@@ -51,5 +51,6 @@ namespace D_OOP
             result = divider / dividend;
             return true;            
         }
+
     }
 }
