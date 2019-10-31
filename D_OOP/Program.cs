@@ -7,9 +7,43 @@ namespace D_OOP
     {
         static void Main(string[] args)
         {
-            
+            Character cr = new Character();
+            Console.WriteLine(cr.Race);
         }
 
+        static void BoxingUnboxing()
+        {
+            //в object можно хранить любые типы данных
+            //object - это referece type
+
+            int x = 1;
+            //процесс упаковки (boxing) переменной x в obj
+            //obj оборачивает x, таким образом значение x будет не на стеке, а в куче
+            object obj = x;
+
+            //кастуем обратно (unboxing)
+            int y = (int)obj;
+            //проблема в том что никто не знает какой тип лежит в object
+        }
+        static void DoWithObj(object obj)
+        {
+            //проверить что лежит в object можно с помощью
+            //ключевых слов is и as
+            bool isPointRef = obj is PointRef;
+            if (isPointRef)
+            {
+                PointRef pr = (PointRef)obj;
+                Console.WriteLine(pr.X);
+            }
+            else
+            {
+                //do something
+            }
+
+            PointRef pr2 = obj as PointRef; //если object - PointRef type, 
+                                            //то сразу произойдет кастование 
+                                            //PointRef pr2 = (PointRef)obj;
+        }
         static void NRE_NullableValTypesDemo()
         {
             //PointVal pv; //присвоить null невозможно

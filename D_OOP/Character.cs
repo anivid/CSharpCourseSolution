@@ -27,17 +27,40 @@ namespace D_OOP
 
             //при использовании рефакторинга можно использовать автосвойство, так же избавляет от полей
         //сокращенная запись св-ва
-        public int Heath { get; private set; } = 100;
+        public int Health { get; private set; } = 100;
+        public int Armor { get; private set; }
         public void Hit(int damage)
         {
-            if (damage > Heath)
+            if (damage > Health)
             {
-                damage = Heath;
+                damage = Health;
             }
             //healt -= damage;
-            Heath -= damage;
+            Health -= damage;
         }
+        public string Race { get; private set; }
 
+        //чтобы вызвать коструктор класса, используется сниппет ctor
+        //конструктор по умолчанию не принимает никаких аргументов
+        //конструктор вызывается при создании экземпляра класса Character ch1 = new Character();
+        //можно добавить несколько конструкторов (в т.ч. конструктор по умолчанию)
 
+        public Character()
+        {
+                
+        }
+        public Character(string race)
+        {
+            //this используется для разделения переменных
+            //в основном используется если имя поля экземпляра класса(переменной) в классе
+            //такое же как и у передаваемого аргумента, например, this.race = race;
+            this.Race = race;
+            this.Armor = 100; //в этом конструкторе Armor присваивается по умолчанию
+        }
+        public Character(string race, int armor)
+        {
+            this.Armor = armor;
+            this.Race = race;
+        }
     }
 }
