@@ -25,8 +25,15 @@ namespace D_OOP
         //    }
         //}
 
-            //при использовании рефакторинга можно использовать автосвойство, так же избавляет от полей
+        //при использовании рефакторинга можно использовать автосвойство, так же избавляет от полей
         //сокращенная запись св-ва
+
+        //const нельзя изменить ни откуда
+        //для защиты от самих себя
+        private const int speed = 10;
+        //readonly необязательно инициализировать сразу
+        //можно инициализировать из конструктора и больше ни откуда
+        private readonly int manna = 0;
         public int Health { get; private set; } = 100;
         public int Armor { get; private set; }
         public void Hit(int damage)
@@ -57,8 +64,9 @@ namespace D_OOP
             this.Race = race;
             this.Armor = 100; //в этом конструкторе Armor присваивается по умолчанию
         }
-        public Character(string race, int armor)
+        public Character(string race, int armor, int manna)
         {
+            this.manna = manna; //инициализация readonly поля
             this.Armor = armor;
             this.Race = race;
         }
