@@ -27,6 +27,7 @@ namespace D_OOP
 
         //при использовании рефакторинга можно использовать автосвойство, так же избавляет от полей
         //сокращенная запись св-ва
+        public int Health { get; private set; } = 100;
 
         //const нельзя изменить ни откуда
         //для защиты от самих себя
@@ -34,7 +35,7 @@ namespace D_OOP
         //readonly необязательно инициализировать сразу
         //можно инициализировать из конструктора и больше ни откуда
         private readonly int manna = 0;
-        public int Health { get; private set; } = 100;
+        
         public int Armor { get; private set; }
         public void Hit(int damage)
         {
