@@ -18,7 +18,7 @@ namespace D_OOP
             }
             return summ/items.Length;
         }
-        public double TriangleSquare(double sideA, double sideB, double sideC)
+        public static double TriangleSquare(double sideA, double sideB, double sideC)
         {
             double p = (sideA + sideB + sideC) / 2;
             return Math.Sqrt(p * (p - sideA) * (p - sideB) * (p - sideC));

@@ -5,13 +5,13 @@ using System.Threading;
 
 namespace D_OOP
 {
-    public class BackTerminal
+    public class BankTerminal
     {
         //protected закрыт от внешнего мира, но виден в наследниках
         protected string id;
 
         
-        public BackTerminal(string id)
+        public BankTerminal(string id)
         {
             this.id = id;
         }
@@ -32,7 +32,7 @@ namespace D_OOP
 
 
     //объявление наследника
-    public class ModelXTerminal : BackTerminal
+    public class ModelXTerminal : BankTerminal
     {
         //можно передавать значение id в конструкторе
         //public ModelXTerminal(string id)
@@ -53,8 +53,7 @@ namespace D_OOP
             Console.WriteLine("Add actions on Model X Terminal...\n");
         }
     }
-
-    public class ModelYTerminal : BackTerminal
+    public class ModelYTerminal : BankTerminal
     {        
         public ModelYTerminal(string id) : base(id)
         {
@@ -66,4 +65,6 @@ namespace D_OOP
             Console.WriteLine("Model Y Terminal witout base class");
         }
     }
+
+
 }

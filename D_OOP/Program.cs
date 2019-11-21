@@ -7,12 +7,37 @@ namespace D_OOP
     {
         static void Main(string[] args)
         {
+            
+        }
+
+        static void AbstractDemo()
+        {
+            //с абстрактным классом можно работать как с массивом
+            Shape[] shapes = new Shape[2];
+            shapes[0] = new Triangle(10, 2, 10);
+            shapes[1] = new Rectangle(5, 10);
+
+            foreach (var item in shapes)
+            {
+                PolymorphismDemo(item);
+            }
+        }
+        static void PolymorphismDemo(Shape shape)
+        {
+            //Полиморфизм позволяет работать с экземплярами классов
+            //на уровне базового класса полиморфно (здесь Shape),  
+            //а не с каждым наследником по отдельности.
+            Console.WriteLine(shape.Area());
+            shape.Draw();
+            Console.WriteLine(shape.Perimeter());
+        }
+        static void InheritanceDemo()
+        {
             ModelXTerminal xTerminal = new ModelXTerminal("mx01");
             xTerminal.Connect();
             ModelYTerminal yTerminal = new ModelYTerminal("my02");
             yTerminal.Connect();
         }
-
         static void BoxingUnboxing()
         {
             //в object можно хранить любые типы данных
