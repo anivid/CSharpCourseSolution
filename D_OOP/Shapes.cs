@@ -22,7 +22,7 @@ namespace D_OOP
         public abstract double Perimeter();
     }
 
-    public class Triangle : Shape
+    public class Triangle : Shape, IBaseCollection
     {
         private readonly double a, b, c;
         public Triangle(double a, double b, double c)
@@ -46,6 +46,16 @@ namespace D_OOP
         public override double Perimeter()
         {
             return a + b + c;
+        }
+
+        void IBaseCollection.Add(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IBaseCollection.Remove(object obj)
+        {
+            throw new NotImplementedException();
         }
     }
 

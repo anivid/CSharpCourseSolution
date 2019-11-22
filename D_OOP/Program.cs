@@ -7,7 +7,8 @@ namespace D_OOP
     {
         static void Main(string[] args)
         {
-            
+            IBaseCollection collection = new BaseList(4);
+            collection.Add(1);
         }
 
         static void AbstractDemo()
