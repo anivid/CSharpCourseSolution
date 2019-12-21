@@ -17,6 +17,22 @@ namespace D_OOP
         void Remove(object obj);
     }
 
+    //объяаляем метод расширения интерфейса
+    public static class BaseCollectionExtension
+    {
+        //первым аргументом указывается расширяемый интерфейс, остальные на наше усмотрение
+        //здесь это IEnumerable - те классы что его имплементируют могут итерироваться 
+        //foreach. Cюда может быть передана любая коллекция, напр. объект List, Stack, Queue и пр.
+        //потому что все они реализуют IEnumerable
+        public static void AddRange(this IBaseCollection collection, IEnumerable<object> objects)
+        {
+            foreach (var item in objects)
+            {
+                collection.Add(item);
+            }
+        }
+    }
+
     public class BaseList : IBaseCollection
     {
         private object[] _items;

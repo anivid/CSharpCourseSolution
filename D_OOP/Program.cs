@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.IO.Ports;
 
 namespace D_OOP
 {
@@ -7,10 +9,27 @@ namespace D_OOP
     {
         static void Main(string[] args)
         {
-            IBaseCollection collection = new BaseList(4);
-            collection.Add(1);
+            Rect rect = new Rect { Height = 2, Width = 5 };
+            int rectArea = AreaCalc.CalcSquare(rect);
+            Console.WriteLine($"Rect area = {rectArea}");
+
+            //проблема "is a", квадрат является частным случаем
+            //прямоугольника и по логике может наследоваться от
+            //него. Но при объявлении инстанции класса квадрат,
+            //мы можем задать ему неправильные стороны. Это ошибка
+            //при проектировании. Problem of representative
+            Rect square = new Square { Width = 2, Height = 10 };
         }
 
+        static void InterfaceExtensionCall()
+        {
+            //чтобы убедиться что интерфейс расширился
+            //и проверить работу кода, воспользуйся дебагом
+            List<object> list = new List<object>() { 1, 2, 3 };
+            IBaseCollection collection = new BaseList(4);
+
+            collection.AddRange(list);
+        }
         static void AbstractDemo()
         {
             //с абстрактным классом можно работать как с массивом
@@ -169,6 +188,7 @@ namespace D_OOP
             PointVal a; //PointVal a = new PointVal;
             a.X = 3;
             a.Y = 5;
+
 
             PointVal b = a;
             b.X = 7;

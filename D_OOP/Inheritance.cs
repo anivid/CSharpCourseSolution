@@ -65,6 +65,12 @@ namespace D_OOP
             Console.WriteLine("Model Y Terminal witout base class");
         }
     }
+    public class ModelGTerminal : BankTerminal
+    {
+        public ModelGTerminal(string id) : base(id)
+        {
+        }
+    }
 
 
 }

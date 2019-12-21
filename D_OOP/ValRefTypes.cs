@@ -13,6 +13,8 @@ namespace D_OOP
         public int X;
         public int Y;
 
+
+
         public void LogValue()
         {
             Console.WriteLine($"X = {X}, Y = {Y}");
@@ -21,7 +23,7 @@ namespace D_OOP
 
     public class PointRef
     {
-        public int X;
+        public int X { get; set; }
         public int Y;
 
         public void LogValue()
