@@ -28,15 +28,14 @@ namespace D_OOP
         //при использовании рефакторинга можно использовать автосвойство, так же избавляет от полей
         //сокращенная запись св-ва
         public int Health { get; private set; } = 100;
+        public int Armor { get; private set; }
 
         //const нельзя изменить ни откуда
         //для защиты от самих себя
         private const int speed = 10;
         //readonly необязательно инициализировать сразу
         //можно инициализировать из конструктора и больше ни откуда
-        private readonly int manna = 0;
-        
-        public int Armor { get; private set; }
+        private readonly int manna = 0;        
         public void Hit(int damage)
         {
             if (damage > Health)
@@ -46,7 +45,7 @@ namespace D_OOP
             //healt -= damage;
             Health -= damage;
         }
-        public string Race { get; private set; }
+        public Race Race { get; private set; }
 
         //чтобы вызвать коструктор класса, используется сниппет ctor
         //конструктор по умолчанию не принимает никаких аргументов
@@ -57,15 +56,16 @@ namespace D_OOP
         {
                 
         }
-        public Character(string race)
+        public Character(Race race)
         {
             //this используется для разделения переменных
             //в основном используется если имя поля экземпляра класса(переменной) в классе
             //такое же как и у передаваемого аргумента, например, this.race = race;
             this.Race = race;
-            this.Armor = 100; //в этом конструкторе Armor присваивается по умолчанию
+            //пример использования ассоциированного значения из enum
+            this.Armor = (int)race; 
         }
-        public Character(string race, int armor, int manna)
+        public Character(Race race, int armor, int manna)
         {
             this.manna = manna; //инициализация readonly поля
             this.Armor = armor;

@@ -9,6 +9,36 @@ namespace D_OOP
     {
         static void Main(string[] args)
         {
+            
+        }
+
+        static void MyStackDemo()
+        {
+            MyStack<int> stack = new MyStack<int>();
+
+            stack.Push(1);
+            stack.Push(2);
+            stack.Push(3);
+            Console.WriteLine(stack.Peek());
+            stack.Pop();
+            Console.WriteLine(stack.Peek());
+            stack.Push(3);
+            stack.Push(4);
+            stack.Push(5);
+            Console.WriteLine(stack.Peek());
+            Console.WriteLine();
+            foreach (var item in stack)
+            {
+                Console.WriteLine(item);
+            }
+        }
+        static void EnumsDemo()
+        {
+            //передача значения enum в коструктор
+            Character c = new Character(Race.Ork);
+        }
+        static void ProblemOfRepresentative()
+        {
             Rect rect = new Rect { Height = 2, Width = 5 };
             int rectArea = AreaCalc.CalcSquare(rect);
             Console.WriteLine($"Rect area = {rectArea}");
@@ -20,7 +50,6 @@ namespace D_OOP
             //при проектировании. Problem of representative
             Rect square = new Square { Width = 2, Height = 10 };
         }
-
         static void InterfaceExtensionCall()
         {
             //чтобы убедиться что интерфейс расширился
@@ -160,14 +189,12 @@ namespace D_OOP
             Console.WriteLine($"swapped: a = {a}, b = {b}");
 
         }
-
         static void AddNumbers(List<int> numbers)
         {
             numbers.Add(1);
             numbers.Add(2);
             numbers.Add(3);
         }
-
         static void CalcCall()
         {
             Calculator calc = new Calculator();

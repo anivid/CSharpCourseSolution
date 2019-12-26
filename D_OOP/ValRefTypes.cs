@@ -7,7 +7,6 @@ namespace D_OOP
     //разница между классом и стуктурой в семантике копирования
     //value type - тип значения - структура(struct)
     //reference type - ссылочный тип - класс(class)
-
     public struct PointVal
     {
         public int X;
