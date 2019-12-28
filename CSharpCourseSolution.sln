@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C_ArraysCollections", "C_Ar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D_OOP", "D_OOP\D_OOP.csproj", "{05BD65CE-0C78-441D-BD33-7812528C09DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E_Exceptions", "E_Exceptions\E_Exceptions.csproj", "{FCAE0306-4A4C-40F3-923D-2F3CF8F8C129}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_FileStream_and_Extensions", "E_Exceptions\E_FileStream_and_Extensions.csproj", "{FCAE0306-4A4C-40F3-923D-2F3CF8F8C129}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
