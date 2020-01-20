@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
@@ -8,7 +9,54 @@ namespace E_Filestream_and_Exceptions
     {
         static void Main(string[] args)
         {
+            //работу с файлами нужно всегда оборачивать в try catch
+           
+        }
+        
+        static void DirFileDemo()
+        {
+            {
+                File.Copy("test.txt", @"D:\tmp\test_copy.txt", overwrite: true);
+                File.Move("test_copy.txt", "test_copy_renamed.txt");
+                File.Delete("test_copy.txt");
+
+                //проверка наличия файла
+                if (File.Exists("test.txt"))
+                {
+                    File.AppendAllText("test.txt", "bla");
+                }
+
+                bool existsDir = Directory.Exists(@"C:\tmp");
+                if (existsDir)
+                {
+                    //поиск всех txt файлов во всех вложенных папках
+                    var files = Directory.EnumerateFiles(@"C:\tmp", "*.txt", SearchOption.AllDirectories);
+                    //вывести все найденные файлы
+                    foreach (var file in files)
+                    {
+                        Console.WriteLine(file);
+                    }
+                }
+            }
+        }
+        static void FileDemo()
+        {
             //с потоками ввода/вывода можно работать через класс Stream
+
+            //запист всех строк из файла в массив
+            string[] allLines = File.ReadAllLines("test.txt");
+            string allText = File.ReadAllText("test.txt");//в строку
+            //здесь строки будут читаться при прохождении foreach по lines построчно
+            //сейчас по факту не происходит чтения. на крупном файле экономит время
+            IEnumerable<string> lines = File.ReadLines("test.txt");
+
+            //запись
+            File.WriteAllText("test_2.txt", "Hello");//если файла нет то он будет создан
+            File.WriteAllLines("test_3.txt", new string[] { "Hello", "World" });//запись массива
+            File.WriteAllBytes("test_4.txt", new byte[] { 234, 42, 25, 123, 31 });
+
+
+            Console.ReadLine();
 
             Stream fs = new FileStream(@"test.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
 
@@ -25,7 +73,7 @@ namespace E_Filestream_and_Exceptions
                 //    fs.Write()
                 //}
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"Error: {ex.ToString()}");
             }
@@ -34,20 +82,28 @@ namespace E_Filestream_and_Exceptions
                 fs.Close();
             }
 
+            Console.WriteLine("Reading...");
+
             //при работе с классами, которые реализуют IDisposable, например FileStream
             //конструкцию try-finally можно заменить на using
-            using (Stream readingStream = new FileStream("test.txt", FileMode.Open, FileAccess.Read))
+            using (Stream readingStream = new FileStream(@"test.txt", FileMode.Open, FileAccess.Read))
             {
-                byte[] temp = new byte[14];
-                int len = 0;
-                while((len = readingStream.Read(temp, 0, temp.Length)) > 0)
+                byte[] temp = new byte[readingStream.Length];
+                int bytesToRead = (int)readingStream.Length;
+                int bytesRead = 0;
+
+                while (bytesToRead > 0)
                 {
-                    string str = Encoding.UTF8.GetString(temp, 0, len);
-                    Console.WriteLine(str);
+                    int n = readingStream.Read(temp, bytesRead, bytesToRead);
+                    if (n == 0) break;
+
+                    bytesRead += n;
+                    bytesToRead -= n;
                 }
+                string str = Encoding.UTF8.GetString(temp, 0, bytesRead);
+                Console.WriteLine(str);
             }
         }
-        
         static void ExtensionsDemo()
         {
             FileStream file = null;
