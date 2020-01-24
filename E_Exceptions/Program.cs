@@ -1,4 +1,5 @@
-﻿using System;
+﻿//using E_FileStream_and_Extensions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -9,8 +10,13 @@ namespace E_Filestream_and_Exceptions
     {
         static void Main(string[] args)
         {
-            //работу с файлами нужно всегда оборачивать в try catch
-           
+            Complex c1 = new Complex(1, 1);
+            Complex c2 = new Complex(1, 2);
+
+            Complex result = c1.Minus(c2);
+
+            Console.WriteLine(result.ComplexNum);
+
         }
         
         static void DirFileDemo()

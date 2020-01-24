@@ -11,9 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C_ArraysCollections", "C_Ar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D_OOP", "D_OOP\D_OOP.csproj", "{05BD65CE-0C78-441D-BD33-7812528C09DC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_FileStream_and_Extensions", "E_Exceptions\E_FileStream_and_Extensions.csproj", "{FCAE0306-4A4C-40F3-923D-2F3CF8F8C129}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_Filestream_and_Exceptions", "E_Exceptions\E_Filestream_and_Exceptions.csproj", "{FCAE0306-4A4C-40F3-923D-2F3CF8F8C129}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codewars", "Codewars\Codewars.csproj", "{7AD1188D-8ADE-4C03-B41D-E87C76A90013}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Codewars", "Codewars\Codewars.csproj", "{7AD1188D-8ADE-4C03-B41D-E87C76A90013}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guess_Number", "Guess_Number\Guess_Number.csproj", "{1E9BDAC4-9AA4-4AB7-A437-49688D7D5168}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleApp", "ExampleApp\ExampleApp.csproj", "{998B7F00-46C7-4F02-8D01-AD761B25A504}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{7AD1188D-8ADE-4C03-B41D-E87C76A90013}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AD1188D-8ADE-4C03-B41D-E87C76A90013}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AD1188D-8ADE-4C03-B41D-E87C76A90013}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E9BDAC4-9AA4-4AB7-A437-49688D7D5168}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E9BDAC4-9AA4-4AB7-A437-49688D7D5168}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E9BDAC4-9AA4-4AB7-A437-49688D7D5168}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E9BDAC4-9AA4-4AB7-A437-49688D7D5168}.Release|Any CPU.Build.0 = Release|Any CPU
+		{998B7F00-46C7-4F02-8D01-AD761B25A504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{998B7F00-46C7-4F02-8D01-AD761B25A504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{998B7F00-46C7-4F02-8D01-AD761B25A504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{998B7F00-46C7-4F02-8D01-AD761B25A504}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

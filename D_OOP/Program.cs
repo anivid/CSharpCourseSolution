@@ -9,6 +9,9 @@ namespace D_OOP
     {
         static void Main(string[] args)
         {
+            var game = new TicTac("Alice","Bob");
+
+            game.Step();
             
         }
 
